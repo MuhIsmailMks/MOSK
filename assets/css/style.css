@@ -34,32 +34,6 @@ body{
 .normal-text-stroke{ 
     -webkit-text-stroke: .65px black;
 }
-
-/* circle text */
-.circle-text {
-    position: absolute;
-    width: 100%;
-    height: 100%;  
-
-    transform: rotate(-9deg);
-    /* transform: rotate(-27deg); */
-}
-
-.circle-text.v1 span{
-    background: var(--gradient1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: .85px black;
-}
-   
-  .circle-text span {
-    position: absolute;
-    left: 0%; 
-  }
-
-  .circle-text.howToTitle span{
-    transform-origin: 0 720px;
-  }
   
 /* btn hover */
 .btn_hover::before{
@@ -102,17 +76,33 @@ body{
 
     left: 0%;
     top: 100%;
-    transform: translate(0%,0%);
+    transform: translate(-100%,0%);
 
     height: 100%;
     width: 100%;
 
-    background-color: magenta;
-    border-radius: 50%;
-    border: 8px solid black;
-    transition: 50ms ease-out ;
+    border-radius: 50%; 
+    transition: 500ms ease-out ;
 }
 
+.buy-mosk .bg_hover_effect{
+    transition: 500ms ease-out ;
+}
+
+.buy-mosk:hover .bg_hover_effect{
+    transition: 5000ms ease-out ;
+}
+
+.social_media:hover.bg_hover_effect{
+    transition: .4s ease-in-out;
+}
+
+.menu_btn.bg_hover_effect{
+    background-color: #fdfd8b; 
+} 
+
+.buy-mosk:hover .bg_hover_effect,
+.social_media:hover .container_bg_hover .bg_hover_effect,
 .btn_hover:hover .bg_hover_effect,
 .container_bg_hover:hover .bg_hover_effect{
     left: 50%;
@@ -178,7 +168,7 @@ swiper-slide img {
 
 @keyframes marquee {
     0% { left: 0; }
-    100% { left: -200%; }
+    /* 100% { left: -200%; } */
 }
 
 
@@ -245,6 +235,15 @@ aside img{
 }
 
 /* navbar */
+nav.fixScroll{
+    top: 60px;
+}
+
+nav.scroller{
+    top: 0;
+}
+
+
 .menu_btn .container_bg_hover{
     background: linear-gradient(96.66deg, #E0B5FC -14.92%, #FFD87D 60.94%, #554CFF 139.9%);
 }
@@ -320,26 +319,14 @@ aside img{
     -webkit-text-stroke: .64px black;
 }
 
-.about-us::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-
-    background-image: url('../images/bg_3.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    opacity: .3;
-    z-index: 0;
+.contract {  
+    right: -60%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.5s ease; /* Animasi perpindahan */
 }
 
-
+ 
 /* moskonomics */
 .price_moskonomics{
     background: var(--gradient2);
@@ -351,18 +338,21 @@ aside img{
 
 .times{
     background: var(--gradient3);
+}
+
+.moskonomics_title h1{ 
+    background: var(--gradient2); 
+}
+
+.times,
+.moskonomics_title h1{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
     -webkit-text-stroke: .25px black;
+
 }
 
-.moskonomics_title h1{ 
-    background: var(--gradient2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;   
-    -webkit-text-stroke: .25px black;
-}
 
 .moskonomics-content .sol_btn{
     background: var(--gradient1);
@@ -425,19 +415,20 @@ aside img{
 }
 
 #contact .title h2{
-    background: var(--gradient2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    
-    -webkit-text-stroke: .75px black;
+    background: var(--gradient2); 
 }
 
 #contact .email{
     background: var(--gradient3);
+}
+
+#contact .title h2,
+#contact .email{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
     -webkit-text-stroke: .75px black;
+
 }
 
 #contact .social_media .social:nth-child(1){
@@ -464,13 +455,253 @@ aside img{
     background: var(--gradient3);
 }
 
-.contact_container .copyright{
+#contact .copyright{
     background: var(--gradient2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    
     -webkit-text-stroke: .5px black;
 }
+
+
+
+/* animation */
+
+/* hero section */
+.mosk_hero{   
+     animation: mosk_heroAnimated ease-in-out infinite 5s;
+}
+
+.ufo_hero{   
+    animation: heroAnimated ease-in-out infinite 3.6s;
+}
+
+.rockets_hero{   
+    animation: heroAnimated ease-in-out infinite 3.3s;
+}
+
+@keyframes mosk_heroAnimated {
+    0%{ 
+        top: 30%;
+    } 
+    50%{
+        top: 10%;
+    }
+    100%{ 
+        top: 30%;
+    }
+}
+
+@keyframes heroAnimated {
+    0%{ 
+        top: 5%;
+    } 
+    50%{
+        top: -10%;
+    }
+    100%{ 
+        top: 5%;
+    }
+}
+
+
+/* about section */
+.animated_bg_image{
+    z-index: 2;
+    animation: imageAnimation ease-in-out infinite 1s;
+}
+
+.animated_bg_image2{
+    z-index: 1;
+    animation: imageAnimation ease-in-out infinite 1.1s;
+}
+
+.animated_bg_image3{
+    z-index: 0;
+    animation: 
+    imageAnimation2 ease-in-out infinite 1.1s;
+}
+
+
+@keyframes imageAnimation {
+    0%{
+        left: 0;
+        top: 0;
+    }
+    10%{  
+        left: -3%; 
+        top: -5%;  
+    }  
+    66%{  
+        left: 3%; 
+        top: 5%; 
+    }  
+}
+
+@keyframes imageAnimation2 {
+    0%{
+        left: 0;
+        top: 0;
+    }
+    10%{  
+        left: -4.2%; 
+        top: -6%;  
+    }  
+    66%{  
+        left: 4.2%; 
+        top: 6%; 
+    }  
+} 
+
+/* animation plans */
+
+.animated_bg_plans{ 
+        animation: 
+        imageAnimationPlans ease-in-out infinite 1s;
+        animation-delay: .5s;
+} 
+
+@keyframes imageAnimationPlans {
+        0%{
+            left: 0;
+            top: 0;
+        }
+        10%{  
+            left: -3%; 
+            top: -5%;  
+        }  
+        66%{  
+            left: 3%; 
+            top: 5%; 
+        }  
+}
+
+    /* plans 1 */
+    .animated_plans1{ 
+        animation: animatedPlans1 linear infinite 2s;
+    }
+    @keyframes animatedPlans1 { 
+        0%{
+            top: 0%; 
+            left: 0%;
+        }  
+        30%{
+            top: 10%;
+            left: -10%;
+        }
+        50%{
+            top: 10%;
+            left: 10%;
+        }
+        70%{
+            top: 10%;
+            left: -10%;
+        }
+        80%{
+            top: 0%; 
+            left: 0%;
+        }
+
+    } 
+
+     /* plans 3 */
+    .animated_plans3{ 
+        animation: animatedPlans3 linear infinite 2s;
+    }
+    @keyframes animatedPlans3 { 
+        0%{
+            top: 0%; 
+        }  
+        30%{
+            top: -7%;
+        }
+        90%{
+            top: 0%; 
+        }
+
+    } 
+
+    /* plans 4 */
+    .animated_plans4{ 
+        animation: animatedPlans4 linear infinite 2s;
+    } 
+
+    @keyframes animatedPlans4 { 
+        0%{
+            top: 0%;
+            left: 0%; 
+        } 
+        10%{
+            top: 3%;
+            left: 3%; 
+        }
+        30%{ 
+            top: 3%;
+            left: -3%; 
+        }
+        70%{ 
+            top: 3%;
+            left: -6%; 
+        } 
+        90%{
+            top: 0%;
+            left: 0%; 
+        }
+
+    }
+
+    /* plans 5 */
+    .animated_plans5{ 
+        animation: animatedPlans5 ease-in-out infinite .4s;
+
+    } 
+    @keyframes animatedPlans5 {
+        0%{
+            left: 0; 
+        }
+        20%,50%,90%{  
+            left: -3%;  
+        }  
+        30%,60%,100%{  
+            left: 3%;  
+        }  
+    }
+
+/* meme section*/
+.left_meme_animated{ 
+     animation: meme_animation-left ease-in-out infinite .7s; 
+}
+
+.left_meme_animated-2{ 
+     animation: meme_animation-left ease-in-out infinite .6s; 
+}
+
+.right_meme_animated{ 
+     animation: meme_animation-right ease-in-out infinite .7s; 
+}
+
+.right_meme_animated-2{ 
+     animation: meme_animation-right ease-in-out infinite .6s; 
+}
+    
+    
+@keyframes meme_animation-left  {
+        0%,90%{
+            left: 0%; 
+        } 
+        40%{   
+            left: -4%;
+        }  
+}
+
+@keyframes meme_animation-right {
+        0%,90%{
+            right: 0%; 
+        } 
+        40%{   
+            right: -4%;
+        }  
+ }
+
 
 
 /* media queries */
@@ -529,8 +760,31 @@ aside img{
 }
 
 @media screen and (min-width:1024px) {
-    /* circle text */  
+    /* animation */
+    @keyframes mosk_heroAnimated {
+        0%{ 
+            top: 9rem;
+        } 
+        50%{
+            top: 2rem;
+        }
+        100%{ 
+            top: 9rem;
+        }
+    }
 
+    @keyframes heroAnimated {
+        0%{ 
+            top: 20%;
+        } 
+        50%{
+            top: 0%;
+        }
+        100%{ 
+            top: 20%;
+        }
+    }
+    
     /* pop up */
     .pop-up_container h2{ 
         -webkit-text-stroke: 2px black;
@@ -579,10 +833,15 @@ aside img{
 
 @media screen and (min-width:1320px){
     /* marquee text */
+    .marquee .marquee-text { 
+        animation: marquee 11s linear infinite;
+    }
+
     .marquee.v2 span{
         min-width: 440px;
-        width: 15.5%;    
+        width: 15%;    
     }
+ 
 }
 
 @media screen and (min-width:1640px){
@@ -592,6 +851,3 @@ aside img{
     }
 }
 
-
-
-/* animation */

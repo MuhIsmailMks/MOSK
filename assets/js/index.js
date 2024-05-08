@@ -11,6 +11,18 @@ closePopUpBtn.addEventListener('click' ,() => {
 })
  
 // navbar 
+window.addEventListener('scroll', function() {
+  let nav = document.getElementById('nav');
+  let scrollPos = window.scrollY;
+  if (scrollPos > 100) {
+    nav.classList.add('scroller');
+    nav.classList.remove('fixScroll');
+  } else {
+    nav.classList.add('fixScroll');
+    nav.classList.remove('scroller');
+  }
+});
+
 menu_btn.forEach(menuBtn => {
     menuBtn.addEventListener('click',() => { 
         menu_container.classList.add('active')
@@ -56,44 +68,6 @@ function changeImage() {
 window.addEventListener('DOMContentLoaded', changeImage);
 window.addEventListener('resize', changeImage);
 
-
-// text circle 
-// const text = document.querySelector(".circle-text h2");
-
-// function setRotationDegree() {
-//   const screenWidth = window.innerWidth;
-//   let rotationDegree;
-
-//   if (screenWidth > 1000) {
-//     rotationDegree = 5.4;
-//   } else if (screenWidth <= 1000 && screenWidth > 800) {
-//     rotationDegree = 4.2;
-//   } else if (screenWidth <= 800 && screenWidth > 600) {
-//     rotationDegree = 3;
-//   } else if (screenWidth <= 600 && screenWidth > 400) {
-//     rotationDegree = 3;
-//   } else {
-//     rotationDegree = 2.4;
-//   }
-
-//   return rotationDegree;
-// }
-
-// function updateTextRotation() {
-//     const rotationDegree = setRotationDegree();
-//     const spans = text.querySelectorAll('span');  
-//     text.innerHTML = text.innerHTML
-//       .split("")
-//       .map((char, i) => `<span style="transform:rotate(${i * rotationDegree}deg)">${char}</span>`)
-//       .join("");
-
-//   }
-// updateTextRotation();
- 
-
-//  swiper slider 
-
-
 // swiper 1 for how to get
 const swiper1 = document.querySelector('.swiper-container1');
   
@@ -108,7 +82,7 @@ const swiperParams1 = {
     768: {
       direction: 'horizontal', 
       slidesPerView: 'auto',
-      spaceBetween:30,   
+      spaceBetween:20,   
     }, 
 
   },
@@ -137,3 +111,60 @@ swiper1.initialize();
   
   Object.assign(swiper2, swiperParams2);
   swiper2.initialize();
+
+  // times  
+const initialCountDownDate = new Date("Mar 7, 2024 00:00:00").getTime();
+ 
+let x = setInterval(function() {
+ 
+  let now = new Date().getTime();
+   
+  let distance = now - initialCountDownDate;
+ 
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+ 
+  document.getElementById("day").innerHTML = (days + 1) + " days"
+  document.getElementById("countdown").innerHTML = hours + "H "+ minutes + "M " + seconds + "S";
+
+}, 1000);
+
+
+  // animation 
+// controller ScrollMagic
+let controller = new ScrollMagic.Controller();
+
+// animation scroll effext
+const animations = [
+  { selector: ".contract", duration: 300, x: -300 },
+  { selector: ".catsanomics-images", duration: 5000, x: -300 }, 
+];
+
+function adjustXValue() {
+  const screenWidth = window.innerWidth;
+  if (screenWidth > 1200) { 
+    animations.forEach(animation => {
+      animation.x = animation.x * 4;
+    });
+  } 
+}
+ 
+adjustXValue();
+window.addEventListener('resize', adjustXValue);
+
+
+
+let tween1, tween2,tween3;
+
+animations.forEach(animation => {
+  let tween = gsap.to(animation.selector, {duration: 300, x: animation.x});
+
+  let scene = new ScrollMagic.Scene({
+    triggerElement: animation.selector,
+    duration: animation.duration
+  })
+  .setTween(tween)
+  .addTo(controller);
+});
