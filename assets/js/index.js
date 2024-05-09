@@ -1,11 +1,38 @@
+const audio = document.getElementById('audio');
 const popUpContainer = document.getElementById('pop-up');
-const closePopUpBtn = document.getElementById('enter');
+const enterBtn = document.getElementById('enter');
 const menu_btn = document.querySelectorAll('.menu_btn');
 const menu_container = document.querySelector('.menu_container');
 const close_menu_btn = document.querySelector('.close-btn');
 
+// audio
+function startSong() {
+  audio.currentTime = 10;
+  audio.play();
+}
 
-closePopUpBtn.addEventListener('click' ,() => { 
+function restartSong() {
+  audio.currentTime = 10;
+  audio.play();
+}
+
+audio.addEventListener('timeupdate', function() {
+  var audioDuration = 60 * 1 + 49;
+  if (audio.currentTime >= audioDuration) {
+    restartSong();
+  }
+});
+
+
+enterBtn.addEventListener('click', function() {
+  startSong();
+});
+
+// startSong(); 
+
+
+// pop up 
+enterBtn.addEventListener('click' ,() => { 
     popUpContainer.classList.remove('active')
     popUpContainer.classList.add('noneActive')
 })
@@ -69,8 +96,9 @@ window.addEventListener('DOMContentLoaded', changeImage);
 window.addEventListener('resize', changeImage);
 
 // swiper 1 for how to get
+// const swiperBtn = document.querySelector('.buttons_swiper span');
 const swiper1 = document.querySelector('.swiper-container1');
-  
+
 const swiperParams1 = {
   slidesPerView: 1,
   breakpoints: {
@@ -86,7 +114,11 @@ const swiperParams1 = {
     }, 
 
   },
-  freeMode:true,
+  // freeMode:true,
+  navigation: { 
+    nextEl: '.swiper-button-next', 
+    prevEl: '.swiper-button-prev', // Selector untuk tombol sebelumnya
+  },
   on: {
     init() { 
     },
@@ -220,35 +252,4 @@ function rotateImageOnScroll() {
 window.addEventListener('scroll', rotateImageOnScroll); 
 rotateImageOnScroll();
 
-
-// trading view
-new TradingView.widget(
-  {
-      'autosize':true,
-      'symbol' : "BINANCE:BICUSD",
-      'interval': 200,
-      "timezone":"Etc/Utc",
-      "theme":"light",
-      "locale": "en",
-      "toolbar-bg":"#f1f3f6",
-      "enable-publishing": false,
-      "withdateranges":true,
-      "hide-side-toolbar":false,
-      "allow-symbol-change":true,
-      "watchlist":[
-          "BINANCE:BTCUSDT",
-          "BINANCE:ETCUSDT"
-      ],
-      "deatils":true,
-      "hoslist":true,
-      "calender":true,
-      "studies":[
-        "STD;SAM"
-      ],
-      "container_id":"Chart",
-      "show_popup_button":true,
-      "popup_width":"1000",
-      "show_height":"650",
-      
-  }
-)
+ 

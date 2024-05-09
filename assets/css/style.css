@@ -215,6 +215,7 @@ swiper-slide img {
  
 
 /* texture bg */
+.bg_tradingView img,
 aside img{
     animation: patternBody 60s infinite linear;
 }
@@ -588,61 +589,33 @@ nav .bg_texture{
 /* about section */
 .animated_bg_image{
     z-index: 2;
-    animation: imageAnimation 1s ease-in-out  infinite;
+    animation: imageAnimation 1.5s ease-in-out infinite;
 }
 
 .animated_bg_image2{
     z-index: 1;
-    animation: imageAnimation 1s ease-in-out .1s infinite;
-    /* animation: imageAnimation2 linear infinite  1.1s; */
+    animation: imageAnimation 1.5s ease-in-out .1s infinite; 
 }
 
 .animated_bg_image3{
     z-index: 0;
-    animation: imageAnimation 1s ease-in-out .2s infinite;
-    /* animation: imageAnimation3 linear infinite 1s; */
+    animation: imageAnimation 1.5s ease-in-out .2s infinite; 
 }
 
 
 @keyframes imageAnimation {
 
-    0%,100%{
+    0%,50%,100%{
         transform: translate(0); 
     }
 
-    50%{ 
+    20%{ 
         transform: translate(-10%,-10%) scale(.9); 
     }
-}
-
-@keyframes imageAnimation2 {
-    0%,50%,100%{
-        transform: translate(0) scale(1); 
-    }
-
-    30%{ 
-        transform: translate(-10%,-10%) scale(.9); 
-    }
-
     70%{ 
         transform: translate(10%,10%) scale(.9); 
     }
-
-} 
-
-@keyframes imageAnimation3 {
-    0%,50%,100%{
-        transform: translate(0) scale(1); 
-    }
-
-    30%{ 
-        transform: translate(-12%,-12%) scale(.9); 
-    }
-
-    70%{ 
-        transform: translate(12%,12%) scale(.9); 
-    }
-} 
+}
 
 /* moskonomics animation  */
 .animated_moskonomics_bg{ 
@@ -663,35 +636,38 @@ nav .bg_texture{
 
 /* plans animation  */
 .plansbgAnimation{ 
-    animation: plansbgAnimation linear infinite .9s;
+    animation: plansbgAnimation 1s ease-in-out infinite;
 }
 
 .plansbgAnimation2{ 
-    animation: plansbgAnimation2 linear infinite .9s;
+    animation: plansbgAnimation2 1s ease-in-out infinite;
 }
 
 @keyframes plansbgAnimation {
-    0%,100%{
-        transform: translate(0%);
+    0%,50%,100%{
+        transform: translate(0); 
     }
-    40%{
-        transform: translate(-6%,-6%) scale(1.02); 
+
+    20%{ 
+        transform: translate(-10%,-10%) scale(.9); 
     }
-    80%{
-        transform: translate(6%,6%) scale(1.02) ;
-    } 
+    70%{ 
+        transform: translate(10%,10%) scale(.9); 
+    }
 }
 
+
 @keyframes plansbgAnimation2 {
-    0%,100%{
-        transform: translate(0%);
+    0%,50%,100%{
+        transform: translate(0); 
     }
-    40%{
-        transform: translate(6%,6%) scale(1.02) ;
+
+    20%{ 
+        transform: translate(10%,10%) scale(.9); 
     }
-    80%{
-        transform: translate(-6%,-6%) scale(1.02);  
-    } 
+    70%{ 
+        transform: translate(-10%,-10%) scale(.9); 
+    }
 }
 
 .animated_bg_plans{ 

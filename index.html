@@ -14,8 +14,13 @@
 </head>
 <body>
 
-    
-    <div id="pop-up" class="pop-up  w-full h-full fixed z-[9999] flex justify-center items-center ">
+    <!-- audio -->
+    <audio id="audio" >
+        <source src="./assets/audio/DDG ft. Gunna - Elon Musk (SATOMIC REMIX).mp3" type="audio/mpeg">
+      </audio>
+
+    <!-- pop up  -->
+    <div id="pop-up" class="pop-up w-full h-full fixed z-[9999] flex justify-center items-center ">
         <div class="bg_popUp absolute top-0 left-0 bg-[#18181879] backdrop-filter backdrop-blur-2xl w-full h-full z-[0]"></div>
         <div class="pop-up_container relative z-[999]  rounded-lg xl:rounded-[16px] w-[90%] xl:w-[1183px] max-h-[80%] h-[70%] xl:h-[749px] border-black border-[6px] flex flex-col items-center justify-center mt-[5rem] px-[2rem]">
             <!-- image  -->
@@ -351,7 +356,7 @@
                mx-auto"> 
                 <div class="moskonomics-marquee v1 w-full max-w-[1500px] relative h-auto">
                     <div class="marquee relative w-full h-[30px] md:h-[40px] xl:h-[64px] flex items-center">  
-                        <div class="marquee-text  moskonomics-marquee-1 translate-x-[-10%] xl:translate-x-[-5%] _2 overflow-hidden relative w-full flex items-center">   
+                        <div class="marquee-text  moskonomics-marquee-1 translate-x-[-10%] xl:translate-x-[-20%] min-[1500px]:translate-x-[-30%] _2 overflow-hidden relative w-full flex items-center">   
                             <span class="relative flex justify-center items-center h-[100%] mx-[1rem] xl:mx-0">
                                 <img src="./assets/icons/moskonomics_point.svg" alt="" class="mt-[3vw] min-[450px]:mt-[1.3vw] md:mt-[2rem] xl:mt-[3rem] w-auto h-[10px] md:h-[20px] xl:h-[30px]">
                             </span>   
@@ -373,7 +378,7 @@
                 </div>  
                 <div class="moskonomics-marquee v1 w-full max-w-[1500px] relative h-auto">
                     <div class="marquee relative w-full h-[30px] md:h-[40px] xl:h-[64px] flex items-center">  
-                        <div class="marquee-text moskonomics-marquee-1 translate-x-[-20%] xl:translate-x-[-10%] _2 overflow-hidden relative w-full flex items-center">
+                        <div class="marquee-text moskonomics-marquee-1 translate-x-[-20%] min-[1500px]:translate-x-[-30%]  _2 overflow-hidden relative w-full flex items-center">
                             <span class="relative flex justify-center items-center h-[100%] mx-[1rem] xl:mx-0">
                                 <img src="./assets/icons/moskonomics_point.svg" alt="" class="mt-[3vw] min-[450px]:mt-[1.3vw] md:mt-[2rem] xl:mt-[3rem] w-auto h-[10px] md:h-[20px] xl:h-[30px]">
                             </span>  
@@ -515,9 +520,7 @@
         <!-- how to get secion -->
         <section id="howtoget" class="w-full  h-auto relative  my-[100px] xl:my-[300px]">
 
-            <div class="title relative w-full h-[auto] flex items-center justify-center flex-col">
-
-            
+            <div class="title relative w-full h-[auto] flex items-center justify-center flex-col">      
                 <div class="howTo relative   flex justify-center">
                     <span class="absolute left-0 top-0 w-full h-full z-10"></span>
                     <img src="./assets/icons/howToGet_desk.svg" alt="" class="select-none relative z-0 opacity-90 w-auto max-w-[90%] h-[89.03px] md:h-[106px] xl:h-[202.16px]  ">
@@ -533,8 +536,12 @@
             
             <!-- how to get -->
             <div class=" relative max-w-[1700px] mx-auto  w-full h-auto">
-                <swiper-container init="false" class=" py-[2rem] w-full swiper-container1 h-auto">
-
+            
+                <!-- <div class="buttons_swiper absolute z-10 w-full h-full flex items-center justify-between px-[2rem]">
+                    <span class="cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" class="w-[140px] h-[140px]" viewBox="0 0 24 24"><path fill="currentColor" d="m12 15.288l.688-.688l-2.1-2.1H15.5v-1h-4.912l2.1-2.1L12 8.712L8.712 12zM12.003 21q-1.866 0-3.51-.708q-1.643-.709-2.859-1.924t-1.925-2.856T3 12.003t.708-3.51t1.924-2.859t2.856-1.925T11.997 3t3.51.708t2.859 1.924t1.925 2.856t.709 3.509t-.708 3.51t-1.924 2.859t-2.856 1.925t-3.509.709"/></svg></span>
+                </div> -->
+                <swiper-container navigation="true" init="false" class=" py-[2rem] z-[0] w-full swiper-container1 h-auto">
+                 
                     <!-- steps 1 -->
                   <swiper-slide class="mx-auto relative  overflow-hidden max-w-[90%] w-[335px] h-[350px] md:w-[536px] md:h-[560px]  rounded-[10px] md:rounded-[24px] border-black border-[1.8px] md:border-[3px] flex justify-end flex-col items-center py-[1rem]">
                     <div class="images absolute left-0 top-0 w-full h-full flex justify-center items-center">   
@@ -580,7 +587,7 @@
                         <!-- icon / how to -->
                         <img src="./assets/images/steps_4.png" alt="how to" class="h-auto absolute bottom-0 w-[315px] md:w-[504px]">
                     </div>
-                    <p class="relative w-[85%] normal-text-stroke text-white text-center z-[1] text-[20px] md:text-[32px]">Select  <span class="text-[#ff4fbc]">$MOSK</span> as the desired token and enter the amount you'd like to buy. The official token address to import is:</p>
+                    <p class="relative w-[85%] normal-text-stroke text-white text-center z-[1] text-[20px] md:text-[32px]">Select  <span class="text-[#F1C8B7]">$MOSK</span> as the desired token and enter the amount you'd like to buy. The official token address to import is:</p>
                 </swiper-slide> 
 
                  <!-- steps 5 -->
@@ -591,7 +598,7 @@
                         <!-- icon / how to -->
                         <img src="./assets/images/steps_5.png" alt="how to" class="h-auto absolute bottom-0 w-[290px] md:w-[504px]">
                     </div>
-                    <p class="relative w-[85%] normal-text-stroke text-white text-center z-[1] text-[20px] md:text-[32px]">Lastly HOLD onto your <span class="text-[red]">$MOSK</span> and see your money Magically grow.</p>
+                    <p class="relative w-[85%] normal-text-stroke text-white text-center z-[1] text-[20px] md:text-[32px]">Lastly HOLD onto your <span class="text-[#ff7777]">$MOSK</span> and see your money Magically grow.</p>
                 </swiper-slide>  
 
                 </swiper-container>
@@ -754,9 +761,16 @@
         </section>
 
 
-        <!-- tradingview section -->
-        <!-- <section class="trading-view-widget relative w-full">
-        </section> -->
+        <!-- trading chart section -->
+        <section class="trading-view-widget relative w-full flex justify-center my-[2rem] xl:my-[4rem]">
+            <div class="frame_container h-auto relative p-[1rem] md:p-[2rem] bg-[#00087e] border-black border-[4px]">
+                <div class="bg_tradingView h-full absolute z-[0] w-full left-0 top-0 overflow-hidden">
+                    <div class=" w-full h-full absolute left-0 top-0 border-black border-[4px] z-[2] bg-[#0000009f]"></div>
+                    <img src="./assets/images/bg_image2.jpg" alt="" class="object-cover z-0 w-full h-full">
+                </div>
+                <iframe id="geckoterminal-embed" title="GeckoTerminal Embed" src="https://www.geckoterminal.com/en/eth/pools/0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640?embed=1&amp;info=0&amp;swaps=0" frameborder="0" allow="clipboard-write" allowfullscreen="" class="max-w-[1200px] w-[300px] min-[400px]:w-[350px] min-[500px]:w-[400px] md:w-[600px] xl:w-[1200px] h-[500px] lg:h-[700px] relative z-10"></iframe>
+            </div>
+        </section>
  
           <!-- marque text slider-->
         <div class="relative mt-[3rem] w-full h-[50px] xl:h-[64px] flex items-center overflow-hidden mx-auto"> 
@@ -857,9 +871,7 @@
         </section> 
 
     </div>
-
-    <!-- tradingview -->
-    <!-- <script src="https://s3.tradingview.com/tv.js"></script> -->
+ 
       <!-- scroll magic -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"></script>
