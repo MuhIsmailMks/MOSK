@@ -155,7 +155,7 @@ function adjustValues() {
         animation.y *= 2;  
       }
     });
-  } else if (screenWidth > 1500) { 
+  } else if (screenWidth > 1500  && screenWidth < 1800) { 
     animations.forEach(animation => {
       animation.x *= 7;
       if(animation.selector === ".rockets") {
@@ -166,6 +166,15 @@ function adjustValues() {
     animations.forEach(animation => {
       if(animation.selector === ".contract") {
         animation.x *= 1.5;  
+      }
+    });
+  } else if (screenWidth > 1800 ) { 
+    animations.forEach(animation => {
+      if(animation.selector === ".contract") {
+        animation.x *= 2.5;  
+      }
+      if(animation.selector === ".rockets") {
+        animation.y *= 2;  
       }
     });
   }
@@ -210,3 +219,36 @@ function rotateImageOnScroll() {
  
 window.addEventListener('scroll', rotateImageOnScroll); 
 rotateImageOnScroll();
+
+
+// trading view
+new TradingView.widget(
+  {
+      'autosize':true,
+      'symbol' : "BINANCE:BICUSD",
+      'interval': 200,
+      "timezone":"Etc/Utc",
+      "theme":"light",
+      "locale": "en",
+      "toolbar-bg":"#f1f3f6",
+      "enable-publishing": false,
+      "withdateranges":true,
+      "hide-side-toolbar":false,
+      "allow-symbol-change":true,
+      "watchlist":[
+          "BINANCE:BTCUSDT",
+          "BINANCE:ETCUSDT"
+      ],
+      "deatils":true,
+      "hoslist":true,
+      "calender":true,
+      "studies":[
+        "STD;SAM"
+      ],
+      "container_id":"Chart",
+      "show_popup_button":true,
+      "popup_width":"1000",
+      "show_height":"650",
+      
+  }
+)
