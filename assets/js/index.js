@@ -132,39 +132,81 @@ let x = setInterval(function() {
 }, 1000);
 
 
-  // animation 
+  // animation
 // controller ScrollMagic
 let controller = new ScrollMagic.Controller();
 
-// animation scroll effext
 const animations = [
-  { selector: ".contract", duration: 300, x: -300 },
-  { selector: ".catsanomics-images", duration: 5000, x: -300 }, 
+  { selector: ".contract", duration: 300, x: -300, y: 0 },  
+  { selector: ".moskonomics-marquee-1", duration: 5000, x: 300, y: 0 }, 
+  { selector: ".moskonomics-marquee-2", duration: 5000, x: -300, y: 0 }, 
+  { selector: ".rockets", duration: 1000, x: 0, y: -230 },   
 ];
-
-function adjustXValue() {
+ 
+function adjustValues() {
   const screenWidth = window.innerWidth;
   if (screenWidth > 1200) { 
     animations.forEach(animation => {
-      animation.x = animation.x * 4;
+      animation.x *= 4;
+      if(animation.selector === ".rockets") {
+        animation.y *= 2;  
+      }
+      if(animation.selector === ".contactUs-container") {
+        animation.y *= 2;  
+      }
     });
-  } 
+  } else if (screenWidth > 1500) { 
+    animations.forEach(animation => {
+      animation.x *= 7;
+      if(animation.selector === ".rockets") {
+        animation.y *= 2;  
+      }
+    }) 
+  } else if (screenWidth <= 500) { 
+    animations.forEach(animation => {
+      if(animation.selector === ".contract") {
+        animation.x *= 1.5;  
+      }
+    });
+  }
 }
  
-adjustXValue();
-window.addEventListener('resize', adjustXValue);
-
-
-
-let tween1, tween2,tween3;
-
-animations.forEach(animation => {
-  let tween = gsap.to(animation.selector, {duration: 300, x: animation.x});
-
+adjustValues();
+ 
+window.addEventListener('resize', adjustValues);
+ 
+animations.forEach(animation => { 
+  let tween = gsap.to(animation.selector, {duration: animation.duration, x: animation.x, y: animation.y});
+ 
   let scene = new ScrollMagic.Scene({
     triggerElement: animation.selector,
-    duration: animation.duration
+    duration: animation.duration,
+    offset: 0
   })
-  .setTween(tween)
+  .setTween(tween) 
   .addTo(controller);
 });
+
+
+
+
+// rotate image moskonomics
+function rotateImageOnScroll() {
+  let width = window.innerWidth;
+  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  let rotation 
+ 
+
+  if (width >= 1300) {
+      rotation = scrollTop / 7 ; 
+  } else if (width >= 500) {
+      rotation = scrollTop / 3;
+  } else {
+      rotation = scrollTop / 1 ;
+  } 
+  gsap.to("#rotatingImage", { rotation: rotation, duration: 0.5 });
+}
+ 
+window.addEventListener('scroll', rotateImageOnScroll); 
+rotateImageOnScroll();
