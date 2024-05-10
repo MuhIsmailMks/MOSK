@@ -115,6 +115,7 @@ body{
 
 /* swiper slider */
 swiper-container {
+    display: none;
     width: 100%; 
 }
 
@@ -975,6 +976,11 @@ nav .bg_texture{
     
      .moskonomics-content .sol_btn{ 
             -webkit-text-stroke: 1px black;
+    }
+
+    /* moskonomics */
+    swiper-container {
+        display: flex; 
     }
 
     /* meme section */
