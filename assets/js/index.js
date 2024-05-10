@@ -68,8 +68,19 @@ close_menu_btn.addEventListener('click',() => {
     menu_container.classList.remove('active')
 });
 
-
-// SOL live price 
+// copy contract
+document.getElementById("contractButton").addEventListener("click", function() { 
+  let contractValue = document.getElementById("contractInput").value;
+ 
+  let tempInput = document.createElement("input");
+  tempInput.value = contractValue;
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand("copy");
+  document.body.removeChild(tempInput);
+ 
+  alert("Copy Address Success");
+});
  
 
 
@@ -190,7 +201,7 @@ function adjustValues() {
   } else if (screenWidth <= 500) { 
     animations.forEach(animation => {
       if(animation.selector === ".contract") {
-        animation.x *= 1.5;  
+        animation.x *= 1;  
       } 
     });
   } else if (screenWidth > 1800 ) { 

@@ -113,9 +113,12 @@ body{
 }
 
 /* swiper slider */
-#moskonomics swiper-container {
-    display: none;
+swiper-container { 
     width: 100%; 
+}
+
+#moskonomics swiper-container {
+    display: none; 
 }
 
 swiper-slide { 
