@@ -444,6 +444,7 @@ nav .menu_container .links li:hover a{
 }
 
 /* how to get */
+#howtoget .how_to-btn span,
 #howtoget swiper-slide button span{
     background: var(--gradient1);
     -webkit-background-clip: text;
