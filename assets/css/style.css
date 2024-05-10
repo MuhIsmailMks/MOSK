@@ -279,6 +279,7 @@ aside img,
 .pop-up_container .btns button:nth-child(2){
     background: var(--gradient2);
 }
+ 
 .pop-up_container .btns button:hover{
     background: var(--gradient3);
     color: white;
@@ -337,7 +338,7 @@ nav.fixScroll .menu_container.active{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
-    -webkit-text-stroke: 3px black;
+    -webkit-text-stroke: 1px black;
 }
 
 .menu_container .links ul  #price a{
@@ -358,6 +359,10 @@ nav .menu_container .links li:hover a{
     background: white;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.close-btn:hover{
+    transform: scale(1.1);
 }
 
 /* hero */
@@ -427,8 +432,13 @@ nav .menu_container .links li:hover a{
 
 
 .moskonomics-content .sol_btn{
-    background: var(--gradient1);
+    background:linear-gradient(96.66deg, #E0B5FC -14.92%, #FFD87D 60.94%, #554CFF 139.9%);
     -webkit-text-stroke: .4px black;
+}
+
+.moskonomics-content .sol_btn:hover{
+    transform: scale(1.1);
+    background: linear-gradient(136.66deg, #E0B5FC -14.92%, #FFD87D 60.94%, #554CFF 139.9%);
 }
 
 /* how to get */
@@ -438,6 +448,58 @@ nav .menu_container .links li:hover a{
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 1px black;
 }
+
+/* swiper button */ 
+
+::part(button-prev),
+::part(button-next){
+    width: 40px;
+    height: 40px;
+}
+
+::part(button-prev)::after,
+::part(button-next)::after{
+    content: "";
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%,-50%);
+
+    width: 110%;
+    height: 110%; 
+    background-color: rgb(2, 0, 109);
+    border-radius: 50%;
+
+    z-index: 2;
+}
+
+::part(button-prev)::before,
+::part(button-next)::before{
+    content: "";
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%; 
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    z-index: 3;
+}
+
+::part(button-prev)::before{
+    background-image: url('../icons/prev-btn.svg');
+}
+::part(button-next)::before{
+    background-image: url('../icons/next-btn.svg');
+}
+
 
 /* plans  section */
 .plans p{    
@@ -727,10 +789,11 @@ nav .bg_texture{
 
     /* plans 1 */
     .animated_plans1{ 
-        animation: animatedPlans1 linear infinite 2s;
+        animation: animatedPlans1 linear infinite 2.5s;
     }
+
     @keyframes animatedPlans1 { 
-        0%{
+        0%,100%{
             top: 0%; 
             left: 0%;
         }  
@@ -742,14 +805,10 @@ nav .bg_texture{
             top: 10%;
             left: 10%;
         }
-        70%{
+        80%{
             top: 10%;
             left: -10%;
-        }
-        80%{
-            top: 0%; 
-            left: 0%;
-        }
+        } 
 
     } 
 
@@ -776,7 +835,7 @@ nav .bg_texture{
     } 
 
     @keyframes animatedPlans4 { 
-        0%{
+        0%,100%{
             top: 0%;
             left: 0%; 
         } 
@@ -786,22 +845,18 @@ nav .bg_texture{
         }
         30%{ 
             top: 3%;
-            left: -3%; 
+            left: -6%; 
         }
         70%{ 
             top: 3%;
-            left: -6%; 
-        } 
-        90%{
-            top: 0%;
-            left: 0%; 
-        }
+            left: -9%; 
+        }  
 
     }
 
     /* plans 5 */
     .animated_plans5{ 
-        animation: animatedPlans5 ease-in-out infinite .4s;
+        animation: animatedPlans5 ease-in-out infinite .8s;
 
     } 
 
@@ -856,7 +911,7 @@ nav .bg_texture{
 
  /* contact us */
  .rockets{
-    animation: rockets 2s linear infinite;
+    animation: rockets 7s linear infinite;
  }
 
  @keyframes rockets {
@@ -1030,6 +1085,13 @@ nav .bg_texture{
         /* navbar */
         nav.fixScroll .menu_container.active{
             top: -5vw;
+        }
+
+        /* how to get */
+        ::part(button-prev),
+        ::part(button-next){
+            width: 70px;
+            height: 70px;
         }
  
 }

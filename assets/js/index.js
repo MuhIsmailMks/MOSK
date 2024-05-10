@@ -70,27 +70,8 @@ close_menu_btn.addEventListener('click',() => {
 
 
 // SOL live price 
- const apiKey = '9adfd6b8-e743-47f1-8fdf-fe9b52e3b7c7';
- const apiUrl = 'https://api.example.com/solana/price'; 
- function fetchSolanaPrice() {
-     fetch(apiUrl, {
-         headers: {
-             'X-API-Key': apiKey
-         }
-     })
-     .then(response => response.json())
-     .then(data => {
-         const solanaPrice = data.price;
-         document.getElementById('solana-price').innerText = `Solana Price: $${solanaPrice}`;
-     })
-     .catch(error => {
-         console.error('Error fetching Solana price:', error);
-         document.getElementById('solana-price').innerText = 'Error fetching price';
-     });
- }
  
- fetchSolanaPrice();
- setInterval(fetchSolanaPrice, 1000);  
+
 
 // change image 
 const howToImg = document.querySelector('.howTo img');
@@ -121,7 +102,8 @@ window.addEventListener('resize', changeImage);
 const swiper1 = document.querySelector('.swiper-container1');
 
 const swiperParams1 = {
-  slidesPerView: 1,
+  slidesPerView: 1, 
+  centered:true,
   breakpoints: {
     1: {
       direction: 'vertical', 
@@ -133,13 +115,7 @@ const swiperParams1 = {
       slidesPerView: 'auto',
       spaceBetween:20,   
     }, 
-
-  },
-  // freeMode:true,
-  navigation: { 
-    nextEl: '.swiper-button-next', 
-    prevEl: '.swiper-button-prev', 
-  },
+  },  
   on: {
     init() { 
     },
