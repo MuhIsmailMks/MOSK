@@ -161,16 +161,13 @@ let x = setInterval(function() {
 }, 1000);
 
 
-  // animation
-// controller ScrollMagic
+  // animation 
 let controller = new ScrollMagic.Controller();
 
 const animations = [
   { selector: ".contract", duration: 300, x: -300, y: 0 },  
   { selector: ".moskonomics-marquee-1", duration: 5000, x: 300, y: 0 }, 
-  { selector: ".moskonomics-marquee-2", duration: 5000, x: -300, y: 0 }, 
-  // { selector: ".left_contact_image", duration: 2000, x: -15, y: 80, ease: Power0.easeNone},   
-  // { selector: ".right_contact_image", duration: 2000, x: 15, y: 80, ease: Power0.easeNone},  
+  { selector: ".moskonomics-marquee-2", duration: 5000, x: -300, y: 0 },  
 ];
  
 function adjustValues() {
@@ -194,11 +191,7 @@ function adjustValues() {
     animations.forEach(animation => {
       if(animation.selector === ".contract") {
         animation.x *= 1.5;  
-      }
-      // if(animation.selector === ".left_contact_image" ||  animation.selector === ".right_contact_image") {
-      //   animation.y *= 15;  
-      //   animation.x *= 20;  
-      // }
+      } 
     });
   } else if (screenWidth > 1800 ) { 
     animations.forEach(animation => {
