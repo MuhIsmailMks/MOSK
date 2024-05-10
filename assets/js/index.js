@@ -196,7 +196,7 @@ function adjustValues() {
     });
   } else if (screenWidth > 1500  && screenWidth < 1800) { 
     animations.forEach(animation => {
-      animation.x *= 7;
+      animation.x *= 5;
     }) 
   } else if (screenWidth <= 500) { 
     animations.forEach(animation => {
