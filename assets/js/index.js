@@ -5,6 +5,9 @@ const menu_btn = document.querySelectorAll('.menu_btn');
 const menu_container = document.querySelector('.menu_container');
 const close_menu_btn = document.querySelector('.close-btn');
 
+AOS.init({ 
+  once: true
+});   
 // audio
 function startSong() {
   audio.currentTime = 10;
@@ -27,9 +30,7 @@ audio.addEventListener('timeupdate', function() {
 enterBtn.addEventListener('click', function() {
   startSong();
 });
-
-// startSong(); 
-
+ 
 
 // pop up 
 enterBtn.addEventListener('click' ,() => { 
@@ -65,16 +66,37 @@ menu_container.addEventListener('click', (e) => {
 
 close_menu_btn.addEventListener('click',() => { 
     menu_container.classList.remove('active')
-})
+});
 
 
-// change image
-// Ambil elemen gambar
+// SOL live price 
+ const apiKey = '9adfd6b8-e743-47f1-8fdf-fe9b52e3b7c7';
+ const apiUrl = 'https://api.example.com/solana/price'; 
+ function fetchSolanaPrice() {
+     fetch(apiUrl, {
+         headers: {
+             'X-API-Key': apiKey
+         }
+     })
+     .then(response => response.json())
+     .then(data => {
+         const solanaPrice = data.price;
+         document.getElementById('solana-price').innerText = `Solana Price: $${solanaPrice}`;
+     })
+     .catch(error => {
+         console.error('Error fetching Solana price:', error);
+         document.getElementById('solana-price').innerText = 'Error fetching price';
+     });
+ }
+ 
+ fetchSolanaPrice();
+ setInterval(fetchSolanaPrice, 1000);  
+
+// change image 
 const howToImg = document.querySelector('.howTo img');
 const moskImg = document.querySelector('.mosk img');
 const moskPlansImg = document.querySelector('.mosk_plans img');
-
-// Fungsi untuk mengubah gambar berdasarkan lebar layar
+ 
 function changeImage() { 
     const screenWidth = window.innerWidth; 
     
@@ -95,8 +117,7 @@ function changeImage() {
 window.addEventListener('DOMContentLoaded', changeImage);
 window.addEventListener('resize', changeImage);
 
-// swiper 1 for how to get
-// const swiperBtn = document.querySelector('.buttons_swiper span');
+// swiper 1 for how to get 
 const swiper1 = document.querySelector('.swiper-container1');
 
 const swiperParams1 = {
@@ -117,7 +138,7 @@ const swiperParams1 = {
   // freeMode:true,
   navigation: { 
     nextEl: '.swiper-button-next', 
-    prevEl: '.swiper-button-prev', // Selector untuk tombol sebelumnya
+    prevEl: '.swiper-button-prev', 
   },
   on: {
     init() { 
@@ -172,7 +193,8 @@ const animations = [
   { selector: ".contract", duration: 300, x: -300, y: 0 },  
   { selector: ".moskonomics-marquee-1", duration: 5000, x: 300, y: 0 }, 
   { selector: ".moskonomics-marquee-2", duration: 5000, x: -300, y: 0 }, 
-  { selector: ".rockets", duration: 1000, x: 0, y: -230 },   
+  // { selector: ".left_contact_image", duration: 2000, x: -15, y: 80, ease: Power0.easeNone},   
+  // { selector: ".right_contact_image", duration: 2000, x: 15, y: 80, ease: Power0.easeNone},  
 ];
  
 function adjustValues() {
@@ -180,8 +202,9 @@ function adjustValues() {
   if (screenWidth > 1200) { 
     animations.forEach(animation => {
       animation.x *= 4;
-      if(animation.selector === ".rockets") {
-        animation.y *= 2;  
+      if(animation.selector === ".left_contact_image" ||  animation.selector === ".right_contact_image") {
+        animation.y *= 4;  
+        animation.x *= 4;  
       }
       if(animation.selector === ".contactUs-container") {
         animation.y *= 2;  
@@ -190,24 +213,22 @@ function adjustValues() {
   } else if (screenWidth > 1500  && screenWidth < 1800) { 
     animations.forEach(animation => {
       animation.x *= 7;
-      if(animation.selector === ".rockets") {
-        animation.y *= 2;  
-      }
     }) 
   } else if (screenWidth <= 500) { 
     animations.forEach(animation => {
       if(animation.selector === ".contract") {
         animation.x *= 1.5;  
       }
+      // if(animation.selector === ".left_contact_image" ||  animation.selector === ".right_contact_image") {
+      //   animation.y *= 15;  
+      //   animation.x *= 20;  
+      // }
     });
   } else if (screenWidth > 1800 ) { 
     animations.forEach(animation => {
       if(animation.selector === ".contract") {
         animation.x *= 2.5;  
-      }
-      if(animation.selector === ".rockets") {
-        animation.y *= 2;  
-      }
+      } 
     });
   }
 }
@@ -240,13 +261,13 @@ function rotateImageOnScroll() {
  
 
   if (width >= 1300) {
-      rotation = scrollTop / 7 ; 
-  } else if (width >= 500) {
-      rotation = scrollTop / 3;
+      rotation = scrollTop / 9 ; 
+  } else if (width >= 500 && width <= 1300) {
+      rotation = scrollTop / 15;
   } else {
-      rotation = scrollTop / 1 ;
+      rotation = scrollTop / 19 ;
   } 
-  gsap.to("#rotatingImage", { rotation: rotation, duration: 0.5 });
+  gsap.to("#rotatingImage", { rotation: rotation, duration: 1.5 });
 }
  
 window.addEventListener('scroll', rotateImageOnScroll); 

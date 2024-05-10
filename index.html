@@ -6,6 +6,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/buy-mosk.png"> 
     <!-- swiper js -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+       <!-- AOS scroll effect cdn --> 
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
      <!-- tailwind css cdn -->
      <script src="https://cdn.tailwindcss.com"></script>
      <!-- style css -->
@@ -20,9 +22,13 @@
       </audio>
 
     <!-- pop up  -->
-    <div id="pop-up" class="pop-up w-full h-full fixed z-[9999] flex justify-center items-center ">
+    <div id="pop-up" class="pop-up  w-full h-full fixed z-[9999] flex justify-center items-center ">
         <div class="bg_popUp absolute top-0 left-0 bg-[#18181879] backdrop-filter backdrop-blur-2xl w-full h-full z-[0]"></div>
-        <div class="pop-up_container relative z-[999]  rounded-lg xl:rounded-[16px] w-[90%] xl:w-[1183px] max-h-[80%] h-[70%] xl:h-[749px] border-black border-[6px] flex flex-col items-center justify-center mt-[5rem] px-[2rem]">
+        <div class="pop-up_container relative z-[999]  rounded-lg xl:rounded-[16px] w-[90%] xl:w-[1183px] max-h-[80%] h-[70%] xl:h-[749px]  flex flex-col items-center justify-center mt-[5rem] px-[2rem]">
+            <!-- background image -->
+            <div class="bg_popUp absolute left-0 top-0 w-full h-full  border-black border-[6px] rounded-[inherit] overflow-hidden">
+                <img src="./assets/images/bg_image2.jpg" alt="">
+            </div>
             <!-- image  -->
             <img src="./assets/images/main_image_contact.png" alt="pop up" class="w-auto max-w-[90%] object-contain top-[-20%]   min-[1430px]:top-[-30%] h-[200px] xl:h-[250px] min-[1430px]:h-[369.67px] absolute z-[9]">
             <!-- welcome -->
@@ -31,8 +37,8 @@
             <p class="tracking-[-.5px] my-[2rem] xl:my-[1.55rem] text-center z-10 xl:tracking-[-1px] text-[20px] xl:text-[36px]">Prepare for a rocket into the world of cryptocurrency</p>
             <!-- btn -->
             <div class="btns relative w-full flex justify-center flex-wrap items-center gap-[1rem] xl:gap-[1.75rem]">
-                <button id="enter" class=" z-10 border-black border-[3px] rounded-lg xl:rounded-[16px] text-[22px] md:text-[32px] xl:text-[48px] uppercase w-[80%] h-[50px] md:w-[200px] xl:w-[290px] xl:h-[80px]">enter</button>
-                <button class="enter z-10 border-black border-[3px] rounded-lg xl:rounded-[16px] text-[22px] md:text-[32px] xl:text-[48px] uppercase w-[80%] h-[50px] md:w-[200px] xl:w-[290px] xl:h-[80px]">get $mosk</button>
+                <button id="enter" class=" z-10 border-black border-[3px] rounded-lg xl:rounded-[16px] duration-300 text-[22px] md:text-[32px] xl:text-[48px] uppercase w-[80%] h-[50px] md:w-[200px] xl:w-[290px] xl:h-[80px]">enter</button>
+                <button class="enter z-10 border-black border-[3px] rounded-lg xl:rounded-[16px] duration-300 text-[22px] md:text-[32px] xl:text-[48px] uppercase w-[80%] h-[50px] md:w-[200px] xl:w-[290px] xl:h-[80px]">get $mosk</button>
             </div>
         </div>
     </div>
@@ -616,7 +622,7 @@
                 </div>
             </div>
 
-            <div class="plans_container relative mx-auto w-[95%] h-[1850px] xl:h-[2500px]">
+            <div class="plans_container relative mx-auto w-[95%] h-[1850px] md:h-[2800px] xl:h-[2500px]">
 
                 <!-- plans1 -->
                 <div class="plans  left-[50%] z-[11] translate-x-[-50%] md:translate-x-0 top-0 md:left-0 md:top-0 absolute rounded-[16px] md:rounded-[24px] w-[335px] h-[216px] md:w-[553px] md:h-[296px] flex justify-center items-center">
@@ -718,7 +724,7 @@
         </section>
 
         <!-- meme section -->
-        <section id="meme" class="relative w-full h-auto">
+        <section id="meme" class="relative  w-full h-auto">
            
             <div class="title w-full flex justify-center">
                 <h2 class="text-[40px] md:text-[100px] :text-[128px] relative">meme</h2>
@@ -760,18 +766,6 @@
 
         </section>
 
-
-        <!-- trading chart section -->
-        <section class="trading-view-widget relative w-full flex justify-center my-[2rem] xl:my-[4rem]">
-            <div class="frame_container h-auto relative p-[1rem] md:p-[2rem] bg-[#00087e] border-black border-[4px]">
-                <div class="bg_tradingView h-full absolute z-[0] w-full left-0 top-0 overflow-hidden">
-                    <div class=" w-full h-full absolute left-0 top-0 border-black border-[4px] z-[2] bg-[#0000009f]"></div>
-                    <img src="./assets/images/bg_image2.jpg" alt="" class="object-cover z-0 w-full h-full">
-                </div>
-                <iframe id="geckoterminal-embed" title="GeckoTerminal Embed" src="https://www.geckoterminal.com/en/eth/pools/0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640?embed=1&amp;info=0&amp;swaps=0" frameborder="0" allow="clipboard-write" allowfullscreen="" class="max-w-[1200px] w-[300px] min-[400px]:w-[350px] min-[500px]:w-[400px] md:w-[600px] xl:w-[1200px] h-[500px] lg:h-[700px] relative z-10"></iframe>
-            </div>
-        </section>
- 
           <!-- marque text slider-->
         <div class="relative mt-[3rem] w-full h-[50px] xl:h-[64px] flex items-center overflow-hidden mx-auto"> 
             <div class="bg absolute w-full h-full left-0 top">
@@ -824,7 +818,7 @@
         </div> 
 
         <!-- contact us -->
-        <section id="contact" class="relative w-full h-[662px] md:h-[834px] xl:h-[921px] min-[1700px]:h-[1000px] pt-[7rem] ">
+        <section id="contact" class="relative w-full h-[862px] md:h-[834px] xl:h-[921px] min-[1700px]:h-[1000px] pt-[7rem] ">
 
             <!-- title -->
             <div class="title relative w-full  z-[1] flex justify-center">
@@ -833,30 +827,48 @@
 
             <!-- images contact -->
             <div class="images w-full z-[1] h-[80%] absolute left-[50%] translate-x-[-50%] max-w-[1900px] bottom-0 flex justify-center items-start">
-                <img src="./assets/images/main_image_contact.png" alt="contact" class="object-contain w-[100%] md:w-[70%]  xl:w-auto xl:h-[457px] relative">
+                <div class="earth_mosk absolute left-[50%] translate-x-[-50%] w-full h-full bottom-0 flex justify-center">
+                    <!-- image left -->
+                    <div class="container_image_left w-auto absolute z-0 h-[200px] md:h-[250px] xl:h-[300px] min-[1700px]:h-[350px] object-contain top-[20%] left-[40%] translate-x-[-50%]">
+                        <img  src="./assets/images/left_image_contact.png" alt="earth mosk" class="right_contact_image relative w-auto h-full object-contain" 
+                        data-aos="fade-down-left"
+                        data-aos-duration="400"
+                          data-aos-offset="100">
+                    </div>
+
+                    <!-- image center -->
+                    <img src="./assets/images/center_image_contact.png" alt="earth mosk" class="w-auto z-10 relative h-[300px] md:h-[350px] xl:h-[400px] min-[1700px]:h-[500px] object-contain">
+                    <!-- image right -->
+                    <div class="container_right w-auto absolute z-0 h-[200px] md:h-[250px] xl:h-[350px] min-[1700px]:h-[390px] top-[20%] left-[60%] translate-x-[-50%]">
+                        <img  src="./assets/images/right_image_contact.png" alt="earth mosk" class="right_contact_image relative w-auto h-full object-contain" 
+                        data-aos="fade-down-right"
+                        data-aos-duration="400"
+                          data-aos-offset="100">
+                    </div>
+                </div> 
                 <!-- rokects image-->
-                <img src="./assets/images/roket1.png" alt="rockets" class="absolute rockets left-0 bottom-[-150px] min-[1700px]:bottom-[10px] w-auto opacity-0 md:opacity-100 md:h-[388px] xl:h-[601px]">
-                <img src="./assets/images/roket2.png" alt="rockets" class="absolute rockets right-0 bottom-[-150px] min-[1700px]:bottom-[10px] w-auto opacity-0 md:opacity-100 md:h-[388px] xl:h-[601px]">
+                <img src="./assets/images/roket1.png" alt="rockets" class="absolute rockets left-0 bottom-[20px] min-[1700px]:bottom-[60px] w-auto opacity-0 md:opacity-100 md:h-[388px] xl:h-[601px]">
+                <img src="./assets/images/roket2.png" alt="rockets" class="absolute rockets right-0 bottom-[20px] min-[1700px]:bottom-[60px] w-auto opacity-0 md:opacity-100 md:h-[388px] xl:h-[601px]">
             </div>
             
             <!-- contact us social / email -->
-            <div class="contactUs-container absolute h-[50%] left-[50%] translate-x-[-50%] bottom-0 w-[50%]  z-[1]">
+            <div class="contactUs-container absolute  h-[50%] left-[50%] translate-x-[-50%] bottom-0 w-[50%]  z-[1]">
                 <div class="contact-us_container z-[2] w-[400px] absolute  left-[50%] translate-x-[-50%] top-[35%] flex flex-col items-center gap-[40px]">
                     <h3 class="email uppercase text-center text-[32px]">support@elanmosk.com</h3>
                     <div class="social_media w-full flex justify-center gap-[2rem]">
-                        <div class="social cursor-pointer bg-[#E9BC50] flex items-center flex-col justify-between xl:rounded-[20.21px] rounded-[16px] md:rounded-[24px] border-[#141414] border-[1.5px] py-[.25rem] md:py-[.5rem] w-[85px] h-[99px] md:w-[102px] md:h-[118px] ">
+                        <div class="social cursor-pointer duration-300 bg-[#E9BC50] flex items-center flex-col justify-between xl:rounded-[20.21px] rounded-[16px] md:rounded-[24px] border-[#141414] border-[1.5px] py-[.25rem] md:py-[.5rem] w-[85px] h-[99px] md:w-[102px] md:h-[118px] ">
                             <a href="#twitter" class="icon flex justify-center items-center border-black border-[2.25px] rounded-[inherit] w-[90%] h-[60px] md:h-[72px]">
                                 <img src="./assets/icons/twitter.svg" alt="twitter logo">
                             </a>
                             <p class="text-[15.16px] md:text-[16px] tracking-[.5px]">Twitter</p>
                         </div>
-                        <div class="social cursor-pointer bg-[#C4D39F] flex items-center flex-col justify-between rounded-[20.21px] rounded-[16px] md:rounded-[24px] border-[#141414] border-[1.5px] py-[.25rem] md:py-[.5rem] w-[85px] h-[99px] md:w-[102px] md:h-[118px] ">
+                        <div class="social cursor-pointer duration-300 bg-[#C4D39F] flex items-center flex-col justify-between xl:rounded-[20.21px] rounded-[16px] md:rounded-[24px] border-[#141414] border-[1.5px] py-[.25rem] md:py-[.5rem] w-[85px] h-[99px] md:w-[102px] md:h-[118px] ">
                             <a  href="#telegram" class="icon flex justify-center items-center border-black border-[2.25px] rounded-[inherit] w-[90%] h-[60px] md:h-[72px]">
                                 <img src="./assets/icons/Telegram.svg" alt="">
                             </a>
                             <p class="text-[15.16px] md:text-[16px] tracking-[.5px]">telegram</p>
                         </div>
-                        <div class="social cursor-pointer bg-[#9FCFD3] flex items-center flex-col justify-between rounded-[20.21px] rounded-[16px] md:rounded-[24px] border-[#141414] border-[1.5px] py-[.25rem] md:py-[.5rem] w-[85px] h-[99px] md:w-[102px] md:h-[118px] ">
+                        <div class="social cursor-pointer duration-300 bg-[#9FCFD3] flex items-center flex-col justify-between xl:rounded-[20.21px] rounded-[16px] md:rounded-[24px] border-[#141414] border-[1.5px] py-[.25rem] md:py-[.5rem] w-[85px] h-[99px] md:w-[102px] md:h-[118px] ">
                             <a href="#solscan" class="icon flex justify-center items-center border-black border-[2.25px] rounded-[inherit] w-[90%] h-[60px] md:h-[72px]">
                                 <img src="./assets/images/solscan.png" alt="solscan logo">
                             </a>
@@ -871,7 +883,9 @@
         </section> 
 
     </div>
- 
+  
+    <!-- aos js library animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
       <!-- scroll magic -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"></script>

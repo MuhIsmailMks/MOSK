@@ -216,7 +216,8 @@ swiper-slide img {
 
 /* texture bg */
 .bg_tradingView img,
-aside img{
+aside img,
+.bg_popUp img{
     animation: patternBody 60s infinite linear;
 }
 
@@ -241,6 +242,7 @@ aside img{
 .pop-up_container::before{
     content: "";
     position: absolute;
+    /* animation: patternBody 6s infinite linear; */
 
     left: 0;
     top: 0;
@@ -251,10 +253,10 @@ aside img{
 
     border-radius: inherit;
 
-    background-image: url('../images/bg_image2.jpg');
+    /* background-image: url('../images/bg_image2.jpg');
     background-position: bottom;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
 
 .pop-up_container h2{
@@ -269,12 +271,17 @@ aside img{
     -webkit-text-stroke: .5px black;
 }
 
+
 .pop-up_container .btns button:nth-child(1){
     background: var(--gradient1);
 }
 
 .pop-up_container .btns button:nth-child(2){
     background: var(--gradient2);
+}
+.pop-up_container .btns button:hover{
+    background: var(--gradient3);
+    color: white;
 }
 
 /* navbar */
@@ -496,6 +503,11 @@ nav .menu_container .links li:hover a{
 
 }
 
+
+/* images contact */
+ 
+
+/* contact us social media  */
 #contact .social_media .social:nth-child(1){
     transform: rotate(6deg);
 }
@@ -508,17 +520,39 @@ nav .menu_container .links li:hover a{
     transform: rotate(-6deg);
 }
 
+#contact .social_media .social:hover{
+    transform: rotate(0deg) scale(1.1);
+}
+
+#contact .social_media .social .icon{
+    transition: .3s ease-in-out;
+}
+
 #contact .social_media .social:nth-child(1) .icon{
-    background: var(--gradient1);
+    background: linear-gradient(96.66deg, #E0B5FC -14.92%, #FFD87D 60.94%, #554CFF 139.9%);
 }
 
 #contact .social_media .social:nth-child(2) .icon{
-    background: var(--gradient2);
+    background:  linear-gradient(96.66deg, #FFFF7D -14.92%, #E0B5FC 69.46%, #FF4C9D 122.87%); 
 }
 
 #contact .social_media .social:nth-child(3) .icon{
-    background: var(--gradient3);
+    background: linear-gradient(96.52deg, #7DE0FF -14.96%, #FF8383 56.76%, #85FF4C 119.1%);
 }
+
+#contact .social_media .social:nth-child(1):hover .icon{
+    background: linear-gradient(80.66deg, #E0B5FC -14.92%, #FFD87D 60.94%, #b5b1ff 139.9%);
+}
+#contact .social_media .social:nth-child(2):hover .icon{
+    background:  linear-gradient(80.66deg, #FFFF7D -14.92%, #E0B5FC 69.46%, #ff8abf 122.87%); 
+}
+#contact .social_media .social:nth-child(3):hover .icon{
+    background: linear-gradient(80.66deg, #7DE0FF -14.96%, #FF8383 56.76%, #bbff9b 119.1%);
+}
+
+
+
+
 
 #contact .copyright{
     background: var(--gradient2);
@@ -820,8 +854,25 @@ nav .bg_texture{
  }
 
 
+ /* contact us */
+ .rockets{
+    animation: rockets 2s linear infinite;
+ }
 
-/* media queries */ 
+ @keyframes rockets {
+   0%,100%{
+    transform: translateY(0%);
+   }
+
+   50%{
+    transform: translateY(10%);
+   }
+ }
+
+
+
+
+/* responsive media queries */ 
 @media screen and (min-width:768px) {
     /* marquee */ 
     .marquee .marquee-text {
