@@ -209,6 +209,11 @@ function adjustValues() {
       if(animation.selector === ".contract") {
         animation.x *= 2.5;  
       } 
+
+      if(animation.selector === ".moskonomics-marquee-1" ||  animation.selector === ".moskonomics-marquee-2") {
+        animation.y *= .1;  
+        animation.x *= .1;  
+      }
     });
   }
 }
@@ -223,7 +228,7 @@ animations.forEach(animation => {
   let scene = new ScrollMagic.Scene({
     triggerElement: animation.selector,
     duration: animation.duration,
-    offset: 0
+    // offset: 0
   })
   .setTween(tween) 
   .addTo(controller);
